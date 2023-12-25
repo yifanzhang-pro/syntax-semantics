@@ -6,6 +6,8 @@
 
 import random
 import math
+import json
+import argparse
 
 
 def get_integer_combination():
@@ -79,13 +81,31 @@ result = {total_var}
 
     return problem_statement, solution_code, result, solution_wocode
 
+
 # Generate a problem, its solution code, and the result
-problem, solution_code, result, solution_wocode = generate_problem_and_solution_code()
-print("Generated Problem:")
-print(problem)
-print("\nGenerated Solution Code with Comments:")
-print(solution_code)
-print("\nResult of the Solution Code:")
-print(result)
-print("\nGenerated Solution without Code:")
-print(solution_wocode)
+# problem, solution_code, result, solution_wocode = generate_problem_and_solution_code()
+# print("Generated Problem:")
+# print(problem)
+# print("\nGenerated Solution Code with Comments:")
+# print(solution_code)
+# print("\nResult of the Solution Code:")
+# print(result)
+# print("\nGenerated Solution without Code:")
+# print(solution_wocode)
+
+
+parser = argparse.ArgumentParser(description="Generate problems and solutions.")
+parser.add_argument("--num_problems", type=int, default=10000, help="Number of problems to generate")
+
+args = parser.parse_args()
+NUM_PROBLEMS = args.num_problems
+
+        
+
+if __name__ == "__main__":
+    # output jsonl file
+    with open(f'./output/gsm-1-1--NUM{NUM_PROBLEMS}.jsonl', 'w') as f:
+        for i in range(NUM_PROBLEMS):
+            problem, solution_code, result, solution_wocode = generate_problem_and_solution_code()
+            # Write problem to file
+            f.write(json.dumps({"problem": problem, "solution_code": solution_code, "result": str(result), "solution_wocode": solution_wocode}) + '\n')
