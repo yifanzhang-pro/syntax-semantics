@@ -5,7 +5,7 @@
 ```json
 {
     "problem": "[problem]",
-    "solution_code": "<code>\n[commented code]</code>\n",
+    "solution_code": "[commented code]",
     "solution_wocode": "[plain text solution]",
     "result": "[the numerical result]"
 }
@@ -16,5 +16,7 @@
 ```
 "problem"
 
+<code>
 "solution_code"
+</code>
 ```
