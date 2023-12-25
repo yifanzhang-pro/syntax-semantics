@@ -39,26 +39,7 @@ names5 = [
 
 ]
 
-names6 = [
-
-]
-
-names7 = [
-
-]
-
-names8 = [
-
-]
-
-names9 = [
-    
-]
-
-names10 = [
-]
-
-all_names = names1 + names2 + names3 + names4 + names5 + names6 + names7 + names8 + names9 + names10
+all_names = names1 + names2 + names3 + names4 + names5
 
 
 # Printing the list of names

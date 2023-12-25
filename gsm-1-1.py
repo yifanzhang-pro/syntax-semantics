@@ -12,6 +12,21 @@ import jsonlines
 
 random.seed(42) # Consistent random generation
 
+first_names = []
+with jsonlines.open('./data/top_first_names.jsonl') as reader:
+    for line in reader:
+        first_names.append(line['first_name'])
+
+last_names = []
+with jsonlines.open('./data/top_last_names.jsonl') as reader:
+    for line in reader:
+        last_names.append(line['last_name'])
+
+items = []
+with jsonlines.open('./data/items-openai.jsonl') as reader:
+    for line in reader:
+        items.append(line)
+
 def get_integer_combination():
     while True:
         # Randomly generate initial amount
@@ -28,20 +43,9 @@ def get_integer_combination():
             return initial_amount, subsequent_ratio
 
 
-first_names = []
-with jsonlines.open('./data/top_first_names.jsonl') as reader:
-    for line in reader:
-        first_names.append(line['first_name'])
-
-last_names = []
-with jsonlines.open('./data/top_last_names.jsonl') as reader:
-    for line in reader:
-        last_names.append(line['last_name'])
-
-
 def generate_problem_and_solution_code():
     # Lists of random terms
-    items = ["clips", "cupcakes", "handmade soaps", "notebooks", "scarves", "paintings", "books", "plants", "skirts", "Wooden furniture", "Gourmet chocolates", "Potted succulents", "Musical instruments", "Candles"]
+    items = ["clips", "cupcakes", "handmade soaps", "notebooks", "scarves", "paintings", "books", "plants", "skirts", "wooden furniture", "gourmet chocolates", "potted succulents", "musical instruments", "candles"]
     months = ["January and February", "Februray and March", "March and April", "April and May", "May and June", "June and July", "July and August", "August and September", "September and October", "October and November", "November and December", "December and January"]
     places = ["the city center", "a local market", "an online store", "the neighborhood fair", "the downtown area"]
 
