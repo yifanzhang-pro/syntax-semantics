@@ -27,6 +27,11 @@ with jsonlines.open('./data/items-openai.jsonl') as reader:
     for line in reader:
         items.append(line)
 
+us_counties = []
+with jsonlines.open('./data/us_counties.jsonl') as reader:
+    for line in reader:
+        us_counties.append(line)
+
 def get_integer_combination():
     while True:
         # Randomly generate initial amount
@@ -45,7 +50,6 @@ def get_integer_combination():
 
 def generate_problem_and_solution_code():
     # Lists of random terms
-    items = ["clips", "cupcakes", "handmade soaps", "notebooks", "scarves", "paintings", "books", "plants", "skirts", "wooden furniture", "gourmet chocolates", "potted succulents", "musical instruments", "candles"]
     months = ["January and February", "Februray and March", "March and April", "April and May", "May and June", "June and July", "July and August", "August and September", "September and October", "October and November", "November and December", "December and January"]
     places = ["the city center", "a local market", "an online store", "the neighborhood fair", "the downtown area"]
 
@@ -56,10 +60,13 @@ def generate_problem_and_solution_code():
     name = random.choice(first_names) + ' ' + random.choice(last_names)
     item = random.choice(items)
     month = random.choice(months)
+    year = random.randint(2003, 2023)
     place = random.choice(places)
+    county = random.choice(us_counties)
+    county = county['CountyName'] + ", " + county["StateName"]
 
     # Construct problem statement with specific details
-    problem_statement = f"{name} sold {initial_amount} {item} in {month.split(' and ')[0]} at {place}. "
+    problem_statement = f"{name} sold {initial_amount} {item} in {month.split(' and ')[0]}, {year} at {place} of {county}. "
     problem_statement += f"In {month.split(' and ')[1]}, they sold {subsequent_ratio*100:.0f}% of the amount sold in the previous month. "
     problem_statement += f"How many {item} did {name} sell in total during {month}?"
 
@@ -68,7 +75,7 @@ def generate_problem_and_solution_code():
     ratio_var = f"{item.replace(' ', '_')}_ratio"
     total_var = f"total_{item.replace(' ', '_')}"
 
-    solution_code = f"""# Number of {item} sold by {name} in {month.split(' and ')[0]}
+    solution_code = f"""# Number of {item} sold by {name} in {month.split(' and ')[0]}, {year}
 {sales_var} = {initial_amount}
 
 # Sales ratio for the next month
@@ -78,7 +85,7 @@ def generate_problem_and_solution_code():
 # by applying the ratio to the initial sales
 subsequent_{sales_var} = {sales_var} * {ratio_var}
 
-# Calculating the total number of {item} sold during {month}
+# Calculating the total number of {item} sold during {month} at {place} of {county}
 {total_var} = {sales_var} + subsequent_{sales_var}
 
 result = {total_var}
@@ -90,7 +97,7 @@ result = {total_var}
     result = round(exec_globals['result'])
 
     # Generate the solution without code (solution_wocode)
-    solution_wocode = f"{name} sold {initial_amount} {item} in {month.split(' and ')[0]}. "
+    solution_wocode = f"{name} sold {initial_amount} {item} in {month.split(' and ')[0]}, {year} at {place} of {county}. "
     solution_wocode += f"In {month.split(' and ')[1]}, they sold {subsequent_ratio*100:.0f}% of the amount sold in the previous month. "
     solution_wocode += f"{name} sold {round(subsequent_ratio*initial_amount)} {item} in {month.split(' and ')[1]}. "
     solution_wocode += f"In total, {name} sold {initial_amount} + {round(subsequent_ratio*initial_amount)} = {round(result)} {item} during {month}."
