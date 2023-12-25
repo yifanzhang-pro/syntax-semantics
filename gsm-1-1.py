@@ -39,7 +39,7 @@ def get_integer_combination():
         product = initial_amount * subsequent_ratio
 
         # Check if the product is close to an integer
-        if math.isclose(product, round(product), rel_tol=1e-12):
+        if math.isclose(product, round(product), rel_tol=1e-15):
             return initial_amount, subsequent_ratio
 
 
@@ -87,13 +87,13 @@ result = {total_var}
     # Execute the solution code and get the result
     exec_globals = {}
     exec(solution_code, {}, exec_globals)
-    result = int(exec_globals['result'])
+    result = round(exec_globals['result'])
 
     # Generate the solution without code (solution_wocode)
     solution_wocode = f"{name} sold {initial_amount} {item} in {month.split(' and ')[0]}. "
     solution_wocode += f"In {month.split(' and ')[1]}, they sold {subsequent_ratio*100:.0f}% of the amount sold in the previous month. "
-    solution_wocode += f"{name} sold {int(subsequent_ratio*initial_amount)} {item} in {month.split(' and ')[1]}. "
-    solution_wocode += f"In total, {name} sold {initial_amount} + {int(subsequent_ratio*initial_amount)} = {int(result)} {item} during {month}."
+    solution_wocode += f"{name} sold {round(subsequent_ratio*initial_amount)} {item} in {month.split(' and ')[1]}. "
+    solution_wocode += f"In total, {name} sold {initial_amount} + {round(subsequent_ratio*initial_amount)} = {round(result)} {item} during {month}."
 
     return problem_statement, solution_code, result, solution_wocode
 
