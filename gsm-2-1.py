@@ -2,9 +2,21 @@ import random
 import math
 import json
 import argparse
+import jsonlines
 
 # Consistent random generation
 random.seed(42)
+
+first_names = []
+with jsonlines.open('./data/top_first_names.jsonl') as reader:
+    for line in reader:
+        first_names.append(line['first_name'])
+
+last_names = []
+with jsonlines.open('./data/top_last_names.jsonl') as reader:
+    for line in reader:
+        last_names.append(line['last_name'])
+
 
 def get_saving_scenario():
     # Target amount for the item
@@ -35,7 +47,7 @@ def generate_problem_and_solution_code():
     contributors = ["parents", "grandparents", "uncle", "aunt", "friend", "sibling"]
 
     # Randomly select terms
-    name = random.choice(names)
+    name = random.choice(first_names) + ' ' + random.choice(last_names)
     item = random.choice(items)
     contributor_names = random.sample(contributors, len(contributions))
 
