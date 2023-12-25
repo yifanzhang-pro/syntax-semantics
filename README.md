@@ -19,4 +19,8 @@
 <code>
 "solution_code"
 </code>
+<result>
+"result"
+</result>
+"solution_wocode"
 ```
