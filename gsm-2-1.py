@@ -36,68 +36,64 @@ with jsonlines.open('./data/us_counties.jsonl') as reader:
         us_counties.append(line)
 
 
-import random
-import math
-
-def get_hourly_rate_and_minutes():
-    # Randomly generate hourly rate
-    hourly_rate = random.randint(10, 100)
-
-    # Randomly generate minutes worked
-    minutes_worked = random.randint(10, 120)
-
-    return hourly_rate, minutes_worked
-
 def generate_problem_and_solution_code():
     # Lists of random terms
-    jobs = ["babysitting", "tutoring", "gardening", "dog walking", "house cleaning"]
+    hourly_rates = [10, 15, 20, 25, 30]  # Hourly rates in dollars
 
-    # Get hourly rate and minutes worked
-    hourly_rate, minutes_worked = get_hourly_rate_and_minutes()
+    # Get hourly rate and working time that ensure a solution in whole dollars
+    hourly_rate, working_minutes = get_params_combination()
 
     # Randomly select terms
     name = random.choice(first_names) + ' ' + random.choice(last_names)
-    job = random.choice(jobs)
+    activity = random.choice(items)
+    day = random.choice(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"])
     place = random.choice(places)
     county = random.choice(us_counties)
     county = county['CountyName'] + ", " + county["StateName"]
 
     # Construct problem statement with specific details
-    problem_statement = f"{name} earns ${hourly_rate} an hour for {job}. "
-    problem_statement += f"Yesterday, they did {minutes_worked} minutes of {job} at {place} of {county}. "
-    problem_statement += f"How much did {name} earn?"
+    problem_statement = f"{name} earns ${hourly_rate} an hour for {activity} on {day} at {place} in {county}. "
+    problem_statement += f"Yesterday, they did {working_minutes} minutes of {activity}. How much did {name} earn?"
 
     # Generate solution code with specific variable names and comments
-    hourly_rate_var = f"{job.replace(' ', '_')}_hourly_rate"
-    minutes_var = f"{job.replace(' ', '_')}_minutes_worked"
-    earnings_var = f"{name.replace(' ', '_')}_earnings"
+    earnings_per_minute_var = f"earnings_per_minute_for_{activity.replace(' ', '_')}"
+    total_earnings_var = f"total_earnings_for_{activity.replace(' ', '_')}"
 
-    solution_code = f"""# Hourly rate for {job} by {name}
-{hourly_rate_var} = {hourly_rate}
+    solution_code = f"""# Earnings per minute for {activity}
+{earnings_per_minute_var} = {hourly_rate} / 60
 
-# Minutes worked by {name} in {job}
-{minutes_var} = {minutes_worked}
+# Total earnings for {working_minutes} minutes of {activity}
+{total_earnings_var} = {earnings_per_minute_var} * {working_minutes}
 
-# Calculating earnings based on the hourly rate and minutes worked
-earnings_per_minute = {hourly_rate_var} / 60
-{earnings_var} = earnings_per_minute * {minutes_var}
-
-result = {earnings_var}
+result = round({total_earnings_var}, 2)
 """
 
     # Execute the solution code and get the result
     exec_globals = {}
     exec(solution_code, {}, exec_globals)
-    result = round(exec_globals['result'], 2)
+    result = exec_globals['result']
 
     # Generate the solution without code (solution_wocode)
-    solution_wocode = f"{name} earns ${hourly_rate}/60 = ${hourly_rate/60:.2f} per minute.\n"
-    solution_wocode += f"Working {minutes_worked} minutes, {name} earned ${hourly_rate/60:.2f} x {minutes_worked} = ${result}.\n"
-    solution_wocode += f"#### {result}"
+    solution_wocode = f"{name} earns ${hourly_rate}/60 = ${hourly_rate/60:.2f} per minute for {activity}. "
+    solution_wocode += f"Working {working_minutes} minutes, they earned ${hourly_rate/60:.2f} x {working_minutes} = ${result:.2f}. "
+    solution_wocode += f"In total, {name} earned ${result:.2f} for {working_minutes} minutes of {activity} on {day}."
 
     return problem_statement, solution_code, result, solution_wocode
 
+def get_params_combination():
+    while True:
+        # Randomly generate hourly rate
+        hourly_rate = random.choice([10, 15, 20, 25, 30])
 
+        # Randomly generate working minutes
+        working_minutes = random.randint(10, 300)  # Between 10 and 300 minutes
+
+        # Calculate the earnings for the given time
+        earnings = (hourly_rate / 60) * working_minutes
+
+        # Check if the earnings are close to an integer (in whole dollars)
+        if math.isclose(earnings, round(earnings, 2), rel_tol=1e-15):
+            return hourly_rate, working_minutes
 
 
 parser = argparse.ArgumentParser(description="Generate problems and solutions.")
