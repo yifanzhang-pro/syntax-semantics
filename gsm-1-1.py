@@ -37,28 +37,13 @@ with jsonlines.open('./data/us_counties.jsonl') as reader:
     for line in reader:
         us_counties.append(line)
 
-def get_integer_combination():
-    while True:
-        # Randomly generate initial amount
-        initial_amount = random.randint(5, 50000000)
-
-        # Randomly generate subsequent ratio
-        subsequent_ratio = round(random.uniform(0.5, 9.5), 2)
-
-        # Calculate the product
-        product = initial_amount * subsequent_ratio
-
-        # Check if the product is close to an integer
-        if math.isclose(product, round(product), rel_tol=1e-15):
-            return initial_amount, subsequent_ratio
-
 
 def generate_problem_and_solution_code():
     # Lists of random terms
     months = ["January and February", "Februray and March", "March and April", "April and May", "May and June", "June and July", "July and August", "August and September", "September and October", "October and November", "November and December", "December and January"]
 
     # Get initial amount and subsequent ratio that ensure an integer result
-    initial_amount, subsequent_ratio = get_integer_combination()
+    initial_amount, subsequent_ratio = get_params_combination()
     
     # Randomly select terms
     name = random.choice(first_names) + ' ' + random.choice(last_names)
@@ -108,6 +93,21 @@ result = {total_var}
 
     return problem_statement, solution_code, result, solution_wocode
 
+
+def get_params_combination():
+    while True:
+        # Randomly generate initial amount
+        initial_amount = random.randint(5, 50000000)
+
+        # Randomly generate subsequent ratio
+        subsequent_ratio = round(random.uniform(0.5, 9.5), 2)
+
+        # Calculate the product
+        product = initial_amount * subsequent_ratio
+
+        # Check if the product is close to an integer
+        if math.isclose(product, round(product), rel_tol=1e-15):
+            return initial_amount, subsequent_ratio
 
 
 parser = argparse.ArgumentParser(description="Generate problems and solutions.")
