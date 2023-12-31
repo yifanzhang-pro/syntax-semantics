@@ -23,9 +23,14 @@ with jsonlines.open('./data/top_last_names.jsonl') as reader:
         last_names.append(line['last_name'])
 
 items = []
-with jsonlines.open('./data/items-openai.jsonl') as reader:
+with jsonlines.open('./data/items-llm.jsonl') as reader:
     for line in reader:
         items.append(line)
+
+places = []
+with jsonlines.open('./data/places-llm.jsonl') as reader:
+    for line in reader:
+        places.append(line)
 
 us_counties = []
 with jsonlines.open('./data/us_counties.jsonl') as reader:
@@ -51,7 +56,6 @@ def get_integer_combination():
 def generate_problem_and_solution_code():
     # Lists of random terms
     months = ["January and February", "Februray and March", "March and April", "April and May", "May and June", "June and July", "July and August", "August and September", "September and October", "October and November", "November and December", "December and January"]
-    places = ["the city center", "a local market", "an online store", "the neighborhood fair", "the downtown area"]
 
     # Get initial amount and subsequent ratio that ensure an integer result
     initial_amount, subsequent_ratio = get_integer_combination()

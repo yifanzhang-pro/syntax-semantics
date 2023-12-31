@@ -42,7 +42,6 @@ def generate_problem_and_solution_code():
     target_amount, initial_fraction, contributions = get_saving_scenario()
 
     # Lists of random terms
-    names = ["Natalia", "Carlos", "Aisha", "Liam", "Emma", "James", "Fatima", "John", "Olivia", "Benjamin", "Sophia", "Elijah", "Ava"]
     items = ["wallet", "bicycle", "laptop", "camera", "smartphone", "pair of sneakers", "backpack"]
     contributors = ["parents", "grandparents", "uncle", "aunt", "friend", "sibling"]
 
