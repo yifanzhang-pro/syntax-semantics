@@ -62,7 +62,8 @@ def generate_problem_and_solution_code():
     # Generate solution code with specific variable names and comments
     sales_var = f"{item.replace(' ', '_')}_sold_in_{month.split(' ')[0]}"
     ratio_var = f"{item.replace(' ', '_')}_ratio"
-    total_var = f"total_{item.replace(' ', '_')}"
+    total_var = f"total_{item.replace(' ', '_')}
+    "
 
     solution_code = f"""# Number of {item} sold by {name} in {month.split(' and ')[0]}, {year}
 {sales_var} = {initial_amount}
