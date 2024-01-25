@@ -13,6 +13,20 @@
 
 **Training Corpus** should be looks like:
 
+···
+Q: {problem}
+
+```python
+{solution_code}
+```
+```output
+
+```
+
+{solution_wocode}
+
+···
+
 ```
 "problem"
 
