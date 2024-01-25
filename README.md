@@ -21,7 +21,7 @@ Q: {problem}
 {solution_code}
 ```
 ```output
-
+{output}
 ```
 
 {solution_wocode}
