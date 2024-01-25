@@ -13,7 +13,8 @@
 
 **Training Corpus** should be looks like:
 
-'''
+- Markdown version:
+
 Q: {problem}
 
 ```python
@@ -24,7 +25,9 @@ Q: {problem}
 ```
 
 {solution_wocode}
-'''
+
+
+- XML version: 
 
 ```
 "problem"
