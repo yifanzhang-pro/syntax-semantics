@@ -70,7 +70,7 @@ weeks = {time_units}
 {conversion_var} = 12  # assuming 12 {item} per {conversion_unit}
 
 # Calculating the total {conversion_unit}s used
-total_{conversion_var}s = {total_use_var} // {conversion_var}
+total_{conversion_var}s = {total_use_var} / {conversion_var}
 
 result = total_{conversion_var}s
 """
