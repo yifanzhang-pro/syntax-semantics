@@ -62,8 +62,7 @@ def generate_problem_and_solution_code():
     # Generate solution code with specific variable names and comments
     sales_var = f"{item.replace(' ', '_')}_sold_in_{month.split(' ')[0]}"
     ratio_var = f"{item.replace(' ', '_')}_ratio"
-    total_var = f"total_{item.replace(' ', '_')}
-    "
+    total_var = f"total_{item.replace(' ', '_')}"
 
     solution_code = f"""# Number of {item} sold by {name} in {month.split(' and ')[0]}, {year}
 {sales_var} = {initial_amount}
@@ -84,13 +83,13 @@ result = {total_var}
     # Execute the solution code and get the result
     exec_globals = {}
     exec(solution_code, {}, exec_globals)
-    result = round(exec_globals['result'])
+    result = round(exec_globals['result'], 2)
 
     # Generate the solution without code (solution_wocode)
     solution_wocode = f"{name} sold {initial_amount} {item} in {month.split(' and ')[0]}, {year} at {place} of {county}. "
     solution_wocode += f"In {month.split(' and ')[1]}, they sold {subsequent_ratio*100:.0f}% of the amount sold in the previous month. "
-    solution_wocode += f"{name} sold {round(subsequent_ratio*initial_amount)} {item} in {month.split(' and ')[1]}. "
-    solution_wocode += f"In total, {name} sold {initial_amount} + {round(subsequent_ratio*initial_amount)} = {round(result)} {item} during {month}."
+    solution_wocode += f"{name} sold {round(subsequent_ratio*initial_amount, 2)} {item} in {month.split(' and ')[1]}. "
+    solution_wocode += f"In total, {name} sold {initial_amount} + {round(subsequent_ratio*initial_amount, 2)} = {round(result, 2)} {item} during {month}."
 
     return problem_statement, solution_code, result, solution_wocode
 
@@ -98,7 +97,7 @@ result = {total_var}
 def get_params_combination():
     while True:
         # Randomly generate initial amount
-        initial_amount = random.randint(5, 50000000)
+        initial_amount = random.randint(5, 50000)
 
         # Randomly generate subsequent ratio
         subsequent_ratio = round(random.uniform(0.5, 9.5), 2)
@@ -124,4 +123,4 @@ if __name__ == "__main__":
         for i in range(NUM_PROBLEMS):
             problem, solution_code, result, solution_wocode = generate_problem_and_solution_code()
             # Write problem to file
-            f.write(json.dumps({"problem": problem, "solution_code": solution_code, "solution_wocode": solution_wocode, "result": str(result)}) + '\n')
+            f.write(json.dumps({"problem": problem, "solution_code": solution_code, "solution_wocode": solution_wocode, "result": str(result), "idx": i}) + '\n')
