@@ -39,7 +39,6 @@ def generate_problem_and_solution_code():
     # Randomly select names, places, and items
     name1 = random.choice(first_names) + ' ' + random.choice(last_names)
     name2 = random.choice(first_names) + ' ' + random.choice(last_names)
-    place = random.choice(places)
     item = random.choice(items)
 
     # Convert names and item for variable usage
@@ -56,17 +55,15 @@ def generate_problem_and_solution_code():
     problem_statement += f"how many years ago did {name1} buy the {item}?"
 
     # Variable names for solution code
-    age_at_event_var = f"{name2_var}_age_at_{name1_var}_event"
+    event_age_var = f"{name1_var}_age_at_purchase"
     years_since_event_var = f"years_since_{name1_var}_bought_{item_var}"
 
     # Generate solution code
-    solution_code = f"""# Age of {name2} when {name1} bought the {item}
-{name2_var}_current_age = {current_age}
-{name2_var}_age_difference = {age_difference}
-{age_at_event_var} = {name2_var}_current_age - {name2_var}_age_difference
+    solution_code = f"""# Age of {name1} at the time of the purchase
+{event_age_var} = {event_age}
 
 # Calculating how many years ago {name1} bought the {item}
-{years_since_event_var} = {name2_var}_current_age - {age_at_event_var}
+{years_since_event_var} = {current_age} - ({event_age_var} - {age_difference})
 
 result = {years_since_event_var}
 """
@@ -88,9 +85,10 @@ def get_params_combination():
         age_difference = random.randint(1, 20)
         event_age = random.randint(age_difference + 1, 100)
         current_age = random.randint(event_age, 100)
-        
+
         if event_age - age_difference > 0:
             return age_difference, event_age, current_age
+
 
 
 parser = argparse.ArgumentParser(description="Generate problems and solutions.")
