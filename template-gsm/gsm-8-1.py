@@ -49,7 +49,7 @@ def generate_problem_and_solution_code():
     interruption_duration = random.randint(10, 60)  # duration of interruption in minutes
 
     # Construct problem statement
-    problem_statement = (f"{name} needs to complete a task of {total_amount} {item} at {place} of {county}. "
+    problem_statement = (f"{name} needs to complete a task of {total_amount} {item} at {place} in {county}. "
                          f"Normally, they can do {rate} {item}/hour, but {interruption_percentage}% of the way through, "
                          f"an interruption occurs for {interruption_duration} minutes. "
                          f"Then {name} has to restart the task from the beginning. "

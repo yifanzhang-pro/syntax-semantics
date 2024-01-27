@@ -51,7 +51,7 @@ def generate_problem_and_solution_code():
     county = county['CountyName'] + ", " + county["StateName"]
 
     # Construct problem statement with specific details
-    problem_statement = f"{name} starts {activity} for {initial_amount} {time_unit} in {place} of {county}. "
+    problem_statement = f"{name} starts {activity} for {initial_amount} {time_unit} in {place} in {county}. "
     problem_statement += f"Afterwards, they encounter different conditions affecting their rate. "
     for rate in subsequent_rates:
         problem_statement += f"They spend the next period of time {activity} at {rate*100:.0f}% of their initial rate. "

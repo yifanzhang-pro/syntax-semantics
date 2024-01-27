@@ -69,7 +69,7 @@ def generate_problem_and_solution_code():
     county = county['CountyName'] + ", " + county["StateName"]
 
     # Construct problem statement with specific details
-    problem_statement = f"On a {day}, {name} had {initial_quantity} {item} in stock at their store in {place} of {county}. "
+    problem_statement = f"On a {day}, {name} had {initial_quantity} {item} in stock at their store in {place} in {county}. "
     problem_statement += f"Due to a special promotion, there was a {percentage_change}% change in the quantity of {item} by the end of the day. "
     problem_statement += f"How many {item} did {name} have at the end of the day?"
 
@@ -97,7 +97,7 @@ result = {end_stock_var}
     result = round(exec_globals['result'])
 
     # Generate the solution without code (solution_wocode)
-    solution_wocode = f"On a {day}, {name} had {initial_quantity} {item} in stock at their store in {place} of {county}. "
+    solution_wocode = f"On a {day}, {name} had {initial_quantity} {item} in stock at their store in {place} in {county}. "
     solution_wocode += f"Due to a special promotion, there was a {percentage_change}% change in the quantity of {item} by the end of the day. "
     solution_wocode += f"This resulted in {name} having {round(result)} {item} at the end of the day."
 

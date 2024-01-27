@@ -55,7 +55,7 @@ def generate_problem_and_solution_code():
     county = county['CountyName'] + ", " + county["StateName"]
 
     # Construct problem statement with specific details
-    problem_statement = f"{name} sold {initial_amount} {item} in {month.split(' and ')[0]}, {year} at {place} of {county}. "
+    problem_statement = f"{name} sold {initial_amount} {item} in {month.split(' and ')[0]}, {year} at {place} in {county}. "
     problem_statement += f"In {month.split(' and ')[1]}, they sold {subsequent_ratio*100:.0f}% of the amount sold in the previous month. "
     problem_statement += f"How many {item} did {name} sell in total during {month}?"
 
@@ -74,7 +74,7 @@ def generate_problem_and_solution_code():
 # by applying the ratio to the initial sales
 subsequent_{sales_var} = {sales_var} * {ratio_var}
 
-# Calculating the total number of {item} sold during {month} at {place} of {county}
+# Calculating the total number of {item} sold during {month} at {place} in {county}
 {total_var} = {sales_var} + subsequent_{sales_var}
 
 result = {total_var}
@@ -86,7 +86,7 @@ result = {total_var}
     result = round(exec_globals['result'], 2)
 
     # Generate the solution without code (solution_wocode)
-    solution_wocode = f"{name} sold {initial_amount} {item} in {month.split(' and ')[0]}, {year} at {place} of {county}. "
+    solution_wocode = f"{name} sold {initial_amount} {item} in {month.split(' and ')[0]}, {year} at {place} in {county}. "
     solution_wocode += f"In {month.split(' and ')[1]}, they sold {subsequent_ratio*100:.0f}% of the amount sold in the previous month. "
     solution_wocode += f"{name} sold {round(subsequent_ratio*initial_amount, 2)} {item} in {month.split(' and ')[1]}. "
     solution_wocode += f"In total, {name} sold {initial_amount} + {round(subsequent_ratio*initial_amount, 2)} = {round(result, 2)} {item} during {month}."

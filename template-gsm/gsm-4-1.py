@@ -58,7 +58,7 @@ def generate_problem_and_solution_code():
     county = county['CountyName'] + ", " + county["StateName"]
 
     # Construct problem statement with specific details
-    problem_statement = f"{name} started reading a {book} at {place} of {county} on {day}. "
+    problem_statement = f"{name} started reading a {book} at {place} in {county} on {day}. "
     problem_statement += f"They read {initial_pages} pages on the first day. On the second day, they read {subsequent_ratio*100:.0f}% more pages than the first day. "
     problem_statement += f"How many pages did {name} read in total during the first two days?"
 
