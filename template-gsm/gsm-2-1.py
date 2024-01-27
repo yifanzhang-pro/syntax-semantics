@@ -11,27 +11,27 @@ import jsonlines
 random.seed(42) # Consistent random generation
 
 first_names = []
-with jsonlines.open('./data/top_first_names.jsonl') as reader:
+with jsonlines.open('../data/top_first_names.jsonl') as reader:
     for line in reader:
         first_names.append(line['first_name'])
 
 last_names = []
-with jsonlines.open('./data/top_last_names.jsonl') as reader:
+with jsonlines.open('../data/top_last_names.jsonl') as reader:
     for line in reader:
         last_names.append(line['last_name'])
 
 items = []
-with jsonlines.open('./data/items-llm.jsonl') as reader:
+with jsonlines.open('../data/items-llm.jsonl') as reader:
     for line in reader:
         items.append(line)
 
 places = []
-with jsonlines.open('./data/places-llm.jsonl') as reader:
+with jsonlines.open('../data/places-llm.jsonl') as reader:
     for line in reader:
         places.append(line)
 
 us_counties = []
-with jsonlines.open('./data/us_counties.jsonl') as reader:
+with jsonlines.open('../data/us_counties.jsonl') as reader:
     for line in reader:
         us_counties.append(line)
 
