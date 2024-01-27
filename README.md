@@ -11,16 +11,36 @@
 }
 ```
 
-**Training Corpus** should be looks like:
+**Training Corpus** should be look like this:
+
+- Markdown version:
+
+Q: {problem}
+
+A: Let's think step by step.
+```python
+{solution_code}
+```
+```output
+{result}
+```
+
+{solution_wocode}
+
+
+- XML version: 
 
 ```
-"problem"
-
+<problem>
+{problem}
+</problem>
 <code>
-"solution_code"
+{solution_code}
 </code>
-<result>
-"result"
-</result>
-"solution_wocode"
+<output>
+{result}
+</output>
+<solution>
+{solution_wocode}
+</solution>
 ```
