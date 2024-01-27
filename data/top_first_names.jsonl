@@ -189,7 +189,6 @@
 {"first_name": "Nelson", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Ed", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Doug", "gender": "Male", "country_alpha2": "US"}
-{"first_name": "Jos\u00e9", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Tommy", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Guillermo", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Raymond", "gender": "Male", "country_alpha2": "US"}
@@ -429,7 +428,6 @@
 {"first_name": "Art", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Emanuel", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Kirk", "gender": "Male", "country_alpha2": "US"}
-{"first_name": "Jes\u00fas", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Bernard", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Wilfredo", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Earl", "gender": "Male", "country_alpha2": "US"}
@@ -639,7 +637,6 @@
 {"first_name": "Antoine", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Herman", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Chance", "gender": "Male", "country_alpha2": "US"}
-{"first_name": "\u00c1ngel", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Ram", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Gerard", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Jaden", "gender": "Male", "country_alpha2": "US"}
@@ -658,7 +655,6 @@
 {"first_name": "Rohan", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Van", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Geoff", "gender": "Male", "country_alpha2": "US"}
-{"first_name": "V\u00edctor", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Eloy", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Cristobal", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Aly", "gender": "Male", "country_alpha2": "US"}
@@ -750,7 +746,6 @@
 {"first_name": "Jonas", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Jose Manuel", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Tay", "gender": "Male", "country_alpha2": "US"}
-{"first_name": "H\u00e9ctor", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Beau", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Nikita", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Ace", "gender": "Male", "country_alpha2": "US"}
@@ -762,7 +757,6 @@
 {"first_name": "Dorian", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Reinaldo", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Amilcar", "gender": "Male", "country_alpha2": "US"}
-{"first_name": "Andr\u00e9s", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Nacho", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Lane", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Everardo", "gender": "Male", "country_alpha2": "US"}
@@ -845,9 +839,7 @@
 {"first_name": "Conor", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Jacinto", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Stevie", "gender": "Male", "country_alpha2": "US"}
-{"first_name": "Mart\u00edn", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Flaco", "gender": "Male", "country_alpha2": "US"}
-{"first_name": "To\u00f1o", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Scotty", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Rickey", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Ashok", "gender": "Male", "country_alpha2": "US"}
@@ -856,7 +848,6 @@
 {"first_name": "Justice", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Yoni", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Deon", "gender": "Male", "country_alpha2": "US"}
-{"first_name": "Ra\u00fal", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Jorge Luis", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Guille", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Deandre", "gender": "Male", "country_alpha2": "US"}
@@ -926,7 +917,6 @@
 {"first_name": "Derick", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Wendell", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Clemente", "gender": "Male", "country_alpha2": "US"}
-{"first_name": "Ram\u00f3n", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Kristopher", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Braden", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Gaurav", "gender": "Male", "country_alpha2": "US"}
@@ -936,9 +926,7 @@
 {"first_name": "Mick", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Salvatore", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Otto", "gender": "Male", "country_alpha2": "US"}
-{"first_name": "C\u00e9sar", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Baltazar", "gender": "Male", "country_alpha2": "US"}
-{"first_name": "Jos\u00e9 Luis", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Homero", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Manolo", "gender": "Male", "country_alpha2": "US"}
 {"first_name": "Wilber", "gender": "Male", "country_alpha2": "US"}
@@ -1342,7 +1330,6 @@
 {"first_name": "Whitney", "gender": "Female", "country_alpha2": "US"}
 {"first_name": "Dominique", "gender": "Female", "country_alpha2": "US"}
 {"first_name": "Jeanette", "gender": "Female", "country_alpha2": "US"}
-{"first_name": "Mar\u00eda", "gender": "Female", "country_alpha2": "US"}
 {"first_name": "Brandy", "gender": "Female", "country_alpha2": "US"}
 {"first_name": "Kara", "gender": "Female", "country_alpha2": "US"}
 {"first_name": "Katrina", "gender": "Female", "country_alpha2": "US"}
