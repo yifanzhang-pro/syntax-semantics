@@ -6,6 +6,7 @@ import math
 import json
 import argparse
 import jsonlines
+import os
 
 random.seed(42) # Consistent random generation
 
@@ -79,7 +80,7 @@ remaining_after_first = {initial_total} - {first_category_var}
 # Percentage of total participants in the final category
 final_category_percentage = {final_category_var} / {initial_total} * 100
 
-result = round(final_category_percentage, 2)
+result = {final_category_percentage}
 """
 
     # Generate the solution without code (solution_wocode)
@@ -109,6 +110,7 @@ NUM_PROBLEMS = args.num_problems
 
         
 if __name__ == "__main__":
+    os.makedirs('./output', exist_ok=True)
     # output jsonl file
     with open(f'./output/gsm-15-1--NUM{NUM_PROBLEMS}.jsonl', 'w') as f:
         for i in range(NUM_PROBLEMS):

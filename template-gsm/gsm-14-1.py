@@ -6,6 +6,7 @@ import math
 import json
 import argparse
 import jsonlines
+import os
 
 random.seed(42) # Consistent random generation
 
@@ -65,7 +66,7 @@ def generate_problem_and_solution_code():
 # Calculating the initial amount based on the action at {place1}
 {initial_var} = {before_place2_var} / (1 - {fraction1})
 
-result = round({initial_var}, 2)
+result = {initial_var}
 """
 
     # Execute the solution code and get the result
@@ -105,6 +106,7 @@ NUM_PROBLEMS = args.num_problems
 
         
 if __name__ == "__main__":
+    os.makedirs('./output', exist_ok=True)
     # output jsonl file
     with open(f'./output/gsm-14-1--NUM{NUM_PROBLEMS}.jsonl', 'w') as f:
         for i in range(NUM_PROBLEMS):
