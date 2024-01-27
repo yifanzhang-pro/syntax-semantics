@@ -73,7 +73,7 @@ result = {annual_salary_var}
     # Execute the solution code and get the result
     exec_globals = {}
     exec(solution_code, {}, exec_globals)
-    result = exec_globals['result']
+    result = round(exec_globals['result'], 2)
 
     # Generate the solution without code (solution_wocode)
     solution_wocode = f"{name} earns ${pay_rate1} per hour working as a {item1} and ${pay_rate2} per hour as a {item2} at {place} in {county}. "

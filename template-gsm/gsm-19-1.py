@@ -36,8 +36,6 @@ with jsonlines.open('../data/us_counties.jsonl') as reader:
         us_counties.append(line)
 
 
-import random
-
 def generate_problem_and_solution_code():
     # Randomly select terms from predefined lists
     name = random.choice(first_names) + ' ' + random.choice(last_names)
@@ -80,7 +78,7 @@ result = total_{conversion_var}s
     # Execute the solution code and get the result
     exec_globals = {}
     exec(solution_code, {}, exec_globals)
-    result = exec_globals['result']
+    result = round(exec_globals['result'], 2)
 
     # Generate the solution without code
     solution_wocode = f"{name} uses {per_time_unit} {item} every day. "

@@ -77,7 +77,7 @@ result = {total_distance_var}
     # Execute the solution code and get the result
     exec_globals = {}
     exec(solution_code, {}, exec_globals)
-    result = exec_globals['result']
+    result = round(exec_globals['result'], 2)
 
     # Generate the solution without code (solution_wocode)
     solution_wocode = f"On the first day, each {item}-brand car covered {initial_distance} miles. "
