@@ -144,11 +144,10 @@ if __name__ == "__main__":
 <system>
 Requirement:
 1. YOU MUST UTILIZE predefined variable lists first_names, last_names, items, places, us_counties.
-2. THE composed problem should only contains EXACTLY ONE question and ONE answer to it.
-3. YOU MUST NOT PERFORM round(*, 2) in the "solution_code" field.
-4. YOU MUST PERFORM round(*, 2) in the execution result part. `result = round(exec_globals['result'], 2)`
-5. YOU MUST PERFORM round(*, 2) in the "solution_wocode" field.
-6. In the get_params_combination() functions, YOU ARE SUGGESTED TO CONFIGURE INTEGER PARAMETERS, AND AT LEAST YOUR PARAMETERS MUST BE FINITE DIGIT FLOATING NUMBERS.
+2. YOU MUST NOT PERFORM round(*, 2) in the "solution_code" field.
+3. DO NOT USE `//` IN THE "solution_code" field.
+4. YOU MUST PERFORM round(*, 2) in the "solution_wocode" field.
+5. In the get_params_combination() functions, YOU ARE SUGGESTED TO CONFIGURE INTEGER PARAMETERS, AND AT LEAST YOUR PARAMETERS MUST BE FINITE DIGIT FLOATING NUMBERS.
 </system>
 
 ### New origin problem 
