@@ -1,5 +1,4 @@
-# Origin problem: {"question": "Melanie is a door-to-door saleswoman. She sold a third of her vacuum cleaners at the green house, 2 more to the red house, and half of what was left at the orange house. If Melanie has 5 vacuum cleaners left, how many did she start with?", "answer": "First multiply the five remaining vacuum cleaners by two to find out how many Melanie had before she visited the orange house: 5 * 2 = <<5*2=10>>10\nThen add two to figure out how many vacuum cleaners she had before visiting the red house: 10 + 2 = <<10+2=12>>12\nNow we know that 2/3 * x = 12, where x is the number of vacuum cleaners Melanie started with. We can find x by dividing each side of the equation by 2/3, which produces x = 18\n#### 18"}
-
+# Origin problem: {"question": "A merchant wants to make a choice of purchase between 2 purchase plans: jewelry worth $5,000 or electronic gadgets worth $8,000. His financial advisor speculates that the jewelry market will go up 2.5% while the electronic gadgets market will rise 1.2% within the same month. If the merchant is looking to maximize profit at the end of this month by making a choice, how much profit would this be?", "answer": "If he purchases jewelry, he will make a profit of 2.5% which is $5000*(2.5/100) = $<<5000*(2.5/100)=125>>125\nIf he purchases electronic gadgets, he will make a profit of 1.2% which is $8000*(1.2/100) = $<<8000*(1.2/100)=96>>96\nIf he wants to maximize profit, since $125 > $96, he will choose to purchase jewelry, thereby making a profit of $<<125=125>>125\n#### 125"} 
 
 import random
 import math
@@ -115,7 +114,7 @@ NUM_PROBLEMS = args.num_problems
 if __name__ == "__main__":
     os.makedirs('./output', exist_ok=True)
     # output jsonl file
-    with open(f'./output/gsm-16-1--NUM{NUM_PROBLEMS}.jsonl', 'w') as f:
+    with open(f'./output/gsm-0015-1--NUM{NUM_PROBLEMS}.jsonl', 'w') as f:
         for i in range(NUM_PROBLEMS):
             problem, solution_code, result, solution_wocode = generate_problem_and_solution_code()
             # Write problem to file
