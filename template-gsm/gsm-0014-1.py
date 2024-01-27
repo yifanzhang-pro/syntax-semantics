@@ -1,5 +1,4 @@
-# Origin problem: {"question": "Melanie is a door-to-door saleswoman. She sold a third of her vacuum cleaners at the green house, 2 more to the red house, and half of what was left at the orange house. If Melanie has 5 vacuum cleaners left, how many did she start with?", "answer": "First multiply the five remaining vacuum cleaners by two to find out how many Melanie had before she visited the orange house: 5 * 2 = <<5*2=10>>10\nThen add two to figure out how many vacuum cleaners she had before visiting the red house: 10 + 2 = <<10+2=12>>12\nNow we know that 2/3 * x = 12, where x is the number of vacuum cleaners Melanie started with. We can find x by dividing each side of the equation by 2/3, which produces x = 18\n#### 18"}
-
+# Origin problem: {"question": "In a dance class of 20 students, 20% enrolled in contemporary dance, 25% of the remaining enrolled in jazz dance, and the rest enrolled in hip-hop dance. What percentage of the entire students enrolled in hip-hop dance?", "answer": "There are 20 x 20/100 = <<20*20/100=4>>4 students who enrolled in contemporary dance.\nSo, 20 - 4 = <<20-4=16>>16 students are enrolled in either jazz or hip-hop dance.\nThere are 16 x 25/100 = <<16*25/100=4>>4 students who enrolled in jazz dance.\nHence, 16 - 4 = <<16-4=12>>12 students enrolled in hip-hop dance.\nThis is 12/20 x 100% = 60% of the entire students.\n#### 60"}
 
 import random
 import math
@@ -112,7 +111,7 @@ NUM_PROBLEMS = args.num_problems
 if __name__ == "__main__":
     os.makedirs('./output', exist_ok=True)
     # output jsonl file
-    with open(f'./output/gsm-15-1--NUM{NUM_PROBLEMS}.jsonl', 'w') as f:
+    with open(f'./output/gsm-0014-1--NUM{NUM_PROBLEMS}.jsonl', 'w') as f:
         for i in range(NUM_PROBLEMS):
             problem, solution_code, result, solution_wocode = generate_problem_and_solution_code()
             # Write problem to file
