@@ -97,6 +97,9 @@ result = {total_var}
     return problem_statement, solution_code, result, solution_wocode
 
 def get_params_combination():
+    """
+    Prefer integer parameters and ensure numbers have a finite number of digits.
+    """
     while True:
         # Randomly generate initial pages read
         initial_pages = random.randint(10, 300)

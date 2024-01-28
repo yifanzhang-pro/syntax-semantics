@@ -84,6 +84,9 @@ result = {total_pages_var}
 
 
 def get_params_combination():
+"""
+ Prefer integer parameters and ensure numbers have a finite number of digits.
+"""
     # This function is not required in the new template as the parameters are straightforward.
     pass
 

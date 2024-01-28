@@ -96,6 +96,9 @@ result = amount_needed
 
 
 def get_params_combination():
+    """
+    Prefer integer parameters and ensure numbers have a finite number of digits.
+    """
     while True:
         # Randomly generate target amount for an item
         target_amount = random.randint(50, 5000)

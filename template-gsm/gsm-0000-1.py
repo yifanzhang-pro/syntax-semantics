@@ -96,9 +96,9 @@ result = {total_var}
 
 
 def get_params_combination():
-"""
- Prefer integer parameters and ensure numbers have a finite number of digits.
-"""
+    """
+    Prefer integer parameters and ensure numbers have a finite number of digits.
+    """
     while True:
         # Randomly generate initial amount
         initial_amount = random.randint(5, 50000)

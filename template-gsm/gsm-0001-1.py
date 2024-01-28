@@ -82,9 +82,9 @@ result = round({total_earnings_var}, 2)
     return problem_statement, solution_code, result, solution_wocode
 
 def get_params_combination():
-"""
- Prefer integer parameters and ensure numbers have a finite number of digits.
-"""
+    """
+    Prefer integer parameters and ensure numbers have a finite number of digits.
+    """
     while True:
         # Randomly generate hourly rate
         hourly_rate = random.choice([10, 15, 20, 25, 30])
