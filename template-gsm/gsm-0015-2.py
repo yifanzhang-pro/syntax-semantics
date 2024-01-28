@@ -1,4 +1,4 @@
-# Origin problem: {"question": "Joy can read 8 pages of a book in 20 minutes. How many hours will it take her to read 120 pages?", "answer": "In one hour, there are 3 sets of 20 minutes.\nSo, Joy can read 8 x 3 = <<8*3=24>>24 pages in an hour.\nIt will take her 120/24 = <<120/24=5>>5 hours to read 120 pages.\n#### 5"}
+# Origin problem: {"question": "James creates a media empire.  He creates a movie for $2000.  Each DVD cost $6 to make.  He sells it for 2.5 times that much.  He sells 500 movies a day for 5 days a week.  How much profit does he make in 20 weeks?", "answer": "He sold each DVD for 6*2.5=$<<6*2.5=15>>15\nSo he makes a profit of 15-6=$<<15-6=9>>9\nSo each day he makes a profit of 9*500=$<<9*500=4500>>4500\nSo he makes 4500*5=$<<4500*5=22500>>22,500\nHe makes 22,500*20=$<<22500*20=450000>>450,000\nThen after the cost of creating the movie he has a profit of 450,000-2000=$<<450000-2000=448000>>448,000\n#### 448000"}
 
 
 import random
@@ -125,7 +125,7 @@ NUM_PROBLEMS = args.num_problems
 if __name__ == "__main__":
     os.makedirs('./output', exist_ok=True)
     # output jsonl file
-    with open(f'./output/gsm-0014-1--NUM{NUM_PROBLEMS}.jsonl', 'w') as f:
+    with open(f'./output/gsm-0015-2--NUM{NUM_PROBLEMS}.jsonl', 'w') as f:
         for i in range(NUM_PROBLEMS):
             problem, solution_code, result, solution_wocode = generate_problem_and_solution_code()
             # Write problem to file
