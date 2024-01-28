@@ -64,6 +64,11 @@ def generate_problem_and_solution_code():
     county = random.choice(us_counties)
     county = county['CountyName'] + ", " + county["StateName"]
 
+    # Variables for use in solution code
+    name_var = name.replace(' ', '_')
+    item_var = item.replace(' ', '_')
+    county_var = county.replace(' ', '_')
+
     # Construct problem statement with specific details
     problem_statement = f"{name} sold {initial_amount} {item} in {month.split(' and ')[0]}, {year} at {place} in {county}. "
     problem_statement += f"In {month.split(' and ')[1]}, they sold {subsequent_ratio*100:.0f}% of the amount sold in the previous month. "
@@ -143,11 +148,12 @@ if __name__ == "__main__":
 
 <system>
 Requirement:
-1. YOU MUST UTILIZE predefined variable lists first_names, last_names, items, places, us_counties. (items, places, and names may contain blanks ' ', you need to replace it with '_" in as *_var term in the "solution_code" field)
+1. YOU MUST UTILIZE predefined variable lists first_names, last_names, items, places, us_counties. (name, item, place and county may contain blanks ' ', you need to replace it with '_" in as *_var term in the "solution_code" field)
 2. YOU MUST NOT PERFORM round(*, 2) in the "solution_code" field.
 3. DO NOT USE `//` IN THE "solution_code" field.
-4. YOU MUST PERFORM round(*, 2) in the "solution_wocode" field.
-5. In the get_params_combination() functions, Select integer parameters to ensure calculations result in integer values.
+4. REMEMBER TO `exec(solution_code, {}, exec_globals)`.
+5. YOU MUST PERFORM round(*, 2) in the "solution_wocode" field.
+6. In the get_params_combination() functions, Select integer parameters to ensure calculations result in integer values.
 </system>
 
 ### New origin problem 
