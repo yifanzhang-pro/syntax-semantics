@@ -83,7 +83,7 @@ def generate_problem_and_solution_code():
 {miss_first_half_var} = {total_items_var} / 2 - {hit_first_half_var}
 
 # Number of {item} {name} {failure} in the second half
-{miss_second_half_var} = {total_items_var} / 2 * {fraction_miss}
+{miss_second_half_var} = {total_items_var} / 2 * {1 - fraction_miss}
 
 # Total number of {item} {name} {failure}
 {total_miss_var} = {miss_first_half_var} + {miss_second_half_var}
@@ -100,7 +100,7 @@ result = {total_miss_var}
     solution_wocode = f"{name} started {activity} with {initial_amount} {item} at {place} in {county}. "
     solution_wocode += f"Of the first half, {name} {achievement} {int(fraction_hit*100)}% of them but {failure} {int((1 - fraction_hit) * initial_amount / 2)} {item}. "
     solution_wocode += f"Of the second half, {name} {failure} {int(fraction_miss * initial_amount / 2)} {item}. "
-    solution_wocode += f"In total, {name} {failure} {int((1 - fraction_hit) * initial_amount / 2 + fraction_miss * initial_amount / 2)} {item}."
+    solution_wocode += f"In total, {name} {failure} {int((1 - fraction_hit) * initial_amount / 2 + (1 - fraction_miss) * initial_amount / 2)} {item}."
 
     return problem_statement, solution_code, result, solution_wocode
 
