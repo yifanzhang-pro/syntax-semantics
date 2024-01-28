@@ -42,7 +42,8 @@ def generate_problem_and_solution_code():
     item = random.choice(items)
     place = random.choice(places)
     county = random.choice(us_counties)
-    county = county['CountyName'].replace(' ', '_') + ", " + county["StateName"].replace(' ', '_')
+    county = county['CountyName'] + ", " + county["StateName"]
+    county_var = county.replace(' ', '_')
 
     # Get initial amount and subsequent ratios that ensure integer results
     initial_amount, extra_ratio, percentage = get_params_combination()
@@ -87,9 +88,9 @@ result = {total_var}
         result = round(result, 2)
 
     # Generate the solution without code (solution_wocode)
-    solution_wocode = f"{name} has {initial_amount} {item} of one type, and there are {int(extra_ratio*100)}% more of another type, making it {round(initial_amount + initial_amount * extra_ratio, 2)} {item} of the second type. "
-    solution_wocode += f"The total of the first two types is {round(initial_amount + initial_amount * extra_ratio + initial_amount, 2)} {item}. "
-    solution_wocode += f"There are only {int(percentage*100)}% as many of the third type as the first two combined, which is {round((initial_amount + initial_amount * extra_ratio + initial_amount) * percentage, 2)} {item}. "
+    solution_wocode = f"{name} has {initial_amount} {item} of one type, and there are {int(extra_ratio*100)}% more of another type, making it {int(round(initial_amount + initial_amount * extra_ratio, 2))} {item} of the second type. "
+    solution_wocode += f"The total of the first two types is {int(round(initial_amount + initial_amount * extra_ratio + initial_amount, 2))} {item}. "
+    solution_wocode += f"There are only {int(percentage*100)}% as many of the third type as the first two combined, which is {int(round((initial_amount + initial_amount * extra_ratio + initial_amount) * percentage, 2))} {item}. "
     solution_wocode += f"So, {name} has a total of {round(result, 2)} {item}."
 
     return problem_statement, solution_code, result, solution_wocode
@@ -100,23 +101,24 @@ def get_params_combination():
     """
     while True:
         # Randomly generate initial amount as an integer
-        initial_amount = random.randint(5, 500)
+        initial_amount = random.randint(5, 5000)
 
         # Define ratios as integers for easy calculation
         extra_ratio = random.randint(10, 100)  # This will be used as a percentage
-        percentage = random.randint(10, 100)  # This will be used as a percentage
 
         # Calculate the second type amount and ensure it's an integer
-        second_type_amount = initial_amount * extra_ratio // 100
-        if second_type_amount != initial_amount * extra_ratio / 100:
+        second_type_amount = initial_amount * extra_ratio // 100 + initial_amount
+        if second_type_amount != initial_amount * extra_ratio / 100 + initial_amount:
             continue
 
-        # Calculate the third type amount based on the sum of the first two types
-        third_type_amount = (initial_amount + second_type_amount) * percentage // 100
-        if third_type_amount != (initial_amount + second_type_amount) * percentage / 100:
-            continue
+        while True:
+            percentage = random.randint(10, 100)  # This will be used as a percentage
+            # Calculate the third type amount based on the sum of the first two types
+            third_type_amount = (initial_amount + second_type_amount) * percentage // 100
+            if third_type_amount != (initial_amount + second_type_amount) * percentage / 100:
+                continue
 
-        return initial_amount, extra_ratio / 100, percentage / 100
+            return initial_amount, extra_ratio / 100, percentage / 100
 
 
 parser = argparse.ArgumentParser(description="Generate problems and solutions.")
