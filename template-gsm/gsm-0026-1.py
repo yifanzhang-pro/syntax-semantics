@@ -80,12 +80,12 @@ result = {ml_var}
     # Executing the solution code to get the result
     exec_globals = {}
     exec(solution_code, {}, exec_globals)
-    result = int(exec_globals['result'])
+    result = int(round(exec_globals['result'], 0))
 
     # Generating the solution without code
     solution_wocode = f"{name} finds that the solution is {concentration}% {item}. "
     solution_wocode += f"Therefore, the amount of {item} in the solution is {volume} liters * {concentration}% = {volume * (concentration / 100)} liters. "
-    solution_wocode += f"Converting this to milliliters gives {volume * (concentration / 100)} * 1000 = {round(result, 2)} ml."
+    solution_wocode += f"Converting this to milliliters gives {volume * (concentration / 100)} * 1000 = {int(round(result, 0))} ml."
 
     return problem_statement, solution_code, result, solution_wocode
 

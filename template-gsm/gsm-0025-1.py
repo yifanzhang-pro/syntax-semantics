@@ -94,13 +94,13 @@ result = {total_miss_var}
     # Execute the solution code and get the result
     exec_globals = {}
     exec(solution_code, {}, exec_globals)
-    result = int(exec_globals['result'])
+    result = int(round(exec_globals['result'], 0))
 
     # Generate the solution without code (solution_wocode)
     solution_wocode = f"{name} started {activity} with {initial_amount} {item} at {place} in {county}. "
     solution_wocode += f"Of the first half, {name} {achievement} {int(fraction_hit*100)}% of them but {failure} {int((1 - fraction_hit) * initial_amount / 2)} {item}. "
     solution_wocode += f"Of the second half, {name} {failure} {int(fraction_miss * initial_amount / 2)} {item}. "
-    solution_wocode += f"In total, {name} {failure} {int((1 - fraction_hit) * initial_amount / 2 + (1 - fraction_miss) * initial_amount / 2)} {item}."
+    solution_wocode += f"In total, {name} {failure} {int(round((1 - fraction_hit) * initial_amount / 2 + (1 - fraction_miss) * initial_amount / 2, 0))} {item}."
 
     return problem_statement, solution_code, result, solution_wocode
 

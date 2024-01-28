@@ -93,7 +93,7 @@ result = {total_suitable_var}
     # Execute the solution code and get the result
     exec_globals = {}
     exec(solution_code, {}, exec_globals)
-    result = int(exec_globals['result'])
+    result = int(round(exec_globals['result'], 0))
 
     # Generate the solution without code (solution_wocode)
     solution_wocode = f"{name} collected {initial_quantity} {item}, but {initial_ratio*100:.0f}% of them were unsuitable, leaving {initial_quantity - round(initial_ratio * initial_quantity)} suitable {item}. "
