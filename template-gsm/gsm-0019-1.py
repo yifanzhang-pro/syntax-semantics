@@ -83,13 +83,13 @@ result = {time_spent_var}
     # Execute the solution code
     exec_globals = {}
     exec(solution_code, {}, exec_globals)
-    result = int(exec_globals['result'])
+    result = int(round(exec_globals['result'], 0))
 
     # Generate the solution without code
     solution_wocode = f"{name} {activity} {distance_to_destination*2} miles each day to the {item}. "
     solution_wocode += f"So they {activity} {distance_to_destination*2*days} miles for work. "
     solution_wocode += f"That means they {activity} a total of {distance_to_destination*2*days + extra_activity_distance} miles in a week. "
-    solution_wocode += f"So they spend a total of {int(result)} hours {activity} in a week."
+    solution_wocode += f"So they spend a total of {distance_to_destination*2*days + extra_activity_distance} / {speed} = {int(result)} hours {activity} in a week."
 
     return problem_statement, solution_code, result, solution_wocode
 

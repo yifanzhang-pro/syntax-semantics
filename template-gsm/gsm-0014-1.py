@@ -73,11 +73,11 @@ result = {days_var}
     # Execute the solution code and get the result
     exec_globals = {}
     exec(solution_code, {}, exec_globals)
-    result = int(exec_globals['result'])
+    result = int(round(exec_globals['result'], 0))
 
     # Generate the solution without code (solution_wocode)
     solution_wocode = f"{names} can paint {per_unit} {item} in a day at {place} in {county_name}. "
-    solution_wocode += f"It will take them {total_amount}/{per_unit} = {int(result)} days to paint {total_amount} {item}."
+    solution_wocode += f"It will take them {total_amount} / {per_unit} = {int(result)} days to paint {total_amount} {item}."
 
     return problem_statement, solution_code, result, solution_wocode
 

@@ -83,14 +83,14 @@ result = {item3_var}_cost_per_item
     # Execute the solution code
     exec_globals = {}
     exec(solution_code, {}, exec_globals)
-    result = int(exec_globals['result'])
+    result = int(round(exec_globals['result'], 0))
 
     # Generate solution without code
     solution_wocode = f"{name} bought {quantity1} {item1} at ${price1} each for a total of ${quantity1*price1}. "
     solution_wocode += f"They bought {quantity2} {item2} at ${price2} each for a total of ${quantity2*price2}. "
     solution_wocode += f"The {item1} and {item2} cost them ${quantity1*price1 + quantity2*price2}. "
     solution_wocode += f"With a total spending of ${total_amount}, the remaining amount is ${total_amount - (quantity1*price1 + quantity2*price2)}. "
-    solution_wocode += f"They bought 4 {item3} for a total of ${total_amount - (quantity1*price1 + quantity2*price2)}, so each {item3} cost ${int((total_amount - (quantity1*price1 + quantity2*price2)) / 4)}."
+    solution_wocode += f"They bought {quantity3} {item3} for a total of ${total_amount - (quantity1*price1 + quantity2*price2)}, so each {item3} cost ${int(round((total_amount - (quantity1*price1 + quantity2*price2)) / quantity3, 0))}."
 
     return problem_statement, solution_code, result, solution_wocode
 
