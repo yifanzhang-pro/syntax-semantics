@@ -111,7 +111,7 @@ NUM_PROBLEMS = args.num_problems
 if __name__ == "__main__":
     os.makedirs('./output', exist_ok=True)
     # output jsonl file
-    with open(f'./output/gsm-0014-1--NUM{NUM_PROBLEMS}.jsonl', 'w') as f:
+    with open(f'./output/gsm-test-0014-1--NUM{NUM_PROBLEMS}.jsonl', 'w') as f:
         for i in range(NUM_PROBLEMS):
             problem, solution_code, result, solution_wocode = generate_problem_and_solution_code()
             # Write problem to file
