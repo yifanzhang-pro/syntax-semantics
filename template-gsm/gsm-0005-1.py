@@ -104,21 +104,20 @@ def get_params_combination():
         initial_amount = random.randint(5, 5000)
 
         # Define ratios as integers for easy calculation
-        extra_ratio = random.randint(10, 100)  # This will be used as a percentage
+        extra_ratio = random.randint(10, 99)  # This will be used as a percentage
 
         # Calculate the second type amount and ensure it's an integer
         second_type_amount = initial_amount * extra_ratio // 100 + initial_amount
         if second_type_amount != initial_amount * extra_ratio / 100 + initial_amount:
             continue
 
-        while True:
-            percentage = random.randint(10, 100)  # This will be used as a percentage
-            # Calculate the third type amount based on the sum of the first two types
-            third_type_amount = (initial_amount + second_type_amount) * percentage // 100
-            if third_type_amount != (initial_amount + second_type_amount) * percentage / 100:
-                continue
+        percentage = random.randint(10, 99)  # This will be used as a percentage
+        # Calculate the third type amount based on the sum of the first two types
+        third_type_amount = (initial_amount + second_type_amount) * percentage // 100
+        if third_type_amount != (initial_amount + second_type_amount) * percentage / 100:
+            continue
 
-            return initial_amount, extra_ratio / 100, percentage / 100
+        return initial_amount, extra_ratio / 100, percentage / 100
 
 
 parser = argparse.ArgumentParser(description="Generate problems and solutions.")
