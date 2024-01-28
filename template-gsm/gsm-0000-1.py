@@ -84,18 +84,21 @@ result = {total_var}
     # Execute the solution code and get the result
     exec_globals = {}
     exec(solution_code, {}, exec_globals)
-    result = round(exec_globals['result'], 2)
+    result = int(exec_globals['result'])
 
     # Generate the solution without code (solution_wocode)
     solution_wocode = f"{name} sold {initial_amount} {item} in {month.split(' and ')[0]}, {year} at {place} in {county}. "
     solution_wocode += f"In {month.split(' and ')[1]}, they sold {subsequent_ratio*100:.0f}% of the amount sold in the previous month. "
     solution_wocode += f"{name} sold {round(subsequent_ratio*initial_amount, 2)} {item} in {month.split(' and ')[1]}. "
-    solution_wocode += f"In total, {name} sold {initial_amount} + {round(subsequent_ratio*initial_amount, 2)} = {round(result, 2)} {item} during {month}."
+    solution_wocode += f"In total, {name} sold {initial_amount} + {int(subsequent_ratio*initial_amount)} = {result} {item} during {month}."
 
     return problem_statement, solution_code, result, solution_wocode
 
 
 def get_params_combination():
+"""
+ Prefer integer parameters and ensure numbers have a finite number of digits.
+"""
     while True:
         # Randomly generate initial amount
         initial_amount = random.randint(5, 50000)

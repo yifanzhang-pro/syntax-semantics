@@ -104,8 +104,13 @@ def get_params_combination():
         initial_savings_ratio = random.uniform(0.1, 0.9)
         initial_savings = round(target_amount * initial_savings_ratio)
 
-        # Determine if the initial savings is a significant fraction of the target
-        if initial_savings > 10 and initial_savings < target_amount - 30:
+        # Calculate the total contributions (initial savings, friend's, and neighbor's)
+        friend_contribution = initial_savings // 2
+        neighbor_contribution = 2 * friend_contribution
+        total_contributions = initial_savings + friend_contribution + neighbor_contribution
+
+        # Ensure the total contributions do not exceed the target amount
+        if 10 < initial_savings < target_amount - 30 and total_contributions < target_amount:
             return target_amount, initial_savings
 
 

@@ -72,16 +72,19 @@ result = round({total_earnings_var}, 2)
     # Execute the solution code and get the result
     exec_globals = {}
     exec(solution_code, {}, exec_globals)
-    result = exec_globals['result']
+    result = int(exec_globals['result'])
 
     # Generate the solution without code (solution_wocode)
     solution_wocode = f"{name} earns ${hourly_rate}/60 = ${hourly_rate/60:.2f} per minute for {activity}. "
-    solution_wocode += f"Working {working_minutes} minutes, they earned ${hourly_rate/60:.2f} x {working_minutes} = ${result:.2f}. "
-    solution_wocode += f"In total, {name} earned ${result:.2f} for {working_minutes} minutes of {activity} on {day}."
+    solution_wocode += f"Working {working_minutes} minutes, they earned ${hourly_rate/60:.2f} x {working_minutes} = ${result:.0f}. "
+    solution_wocode += f"In total, {name} earned ${result:.0f} for {working_minutes} minutes of {activity} on {day}."
 
     return problem_statement, solution_code, result, solution_wocode
 
 def get_params_combination():
+"""
+ Prefer integer parameters and ensure numbers have a finite number of digits.
+"""
     while True:
         # Randomly generate hourly rate
         hourly_rate = random.choice([10, 15, 20, 25, 30])
