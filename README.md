@@ -11,10 +11,6 @@
 }
 ```
 
-To add colored boxes around each element in your GitHub README, you can use HTML `<div>` elements with inline CSS styles to specify the background color. Here's how you can do it for the "Training Corpus" section:
-
-If you want the colored boxes around each element to be expanded by default when someone views your GitHub README, you can use a combination of HTML and JavaScript. Here's how you can achieve this:
-
 ## Training Corpus
 
 <div style="background-color: #f0f0f0; padding: 10px; border: 1px solid #dcdcdc;" id="defaultOpen1">
@@ -78,9 +74,3 @@ print(result())
 
 </details>
 </div>
-
-<script>
-document.getElementById("defaultOpen1").setAttribute("open", "true");
-document.getElementById("defaultOpen2").setAttribute("open", "true");
-document.getElementById("defaultOpen3").setAttribute("open", "true");
-</script>
