@@ -38,9 +38,6 @@ with jsonlines.open('../data/us_counties.jsonl') as reader:
         us_counties.append(line)
 
 
-import random
-import math
-
 def generate_problem_and_solution_code():
     # Randomly select terms
     name = random.choice(first_names) + ' ' + random.choice(last_names)
