@@ -1,6 +1,5 @@
 # Origin problem: 
 
-
 import random
 import math
 import json

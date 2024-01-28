@@ -106,7 +106,7 @@ result = {total_var}
 
 def get_params_combination():
     """
-    Prefer integer parameters and ensure numbers have a finite number of digits.
+    Select integer parameters to ensure calculations result in integer values.
     """
     while True:
         # Randomly generate initial amount
@@ -147,7 +147,7 @@ Requirement:
 2. YOU MUST NOT PERFORM round(*, 2) in the "solution_code" field.
 3. DO NOT USE `//` IN THE "solution_code" field.
 4. YOU MUST PERFORM round(*, 2) in the "solution_wocode" field.
-5. In the get_params_combination() functions, YOU ARE SUGGESTED TO CONFIGURE INTEGER PARAMETERS, AND AT LEAST YOUR PARAMETERS MUST BE FINITE DIGIT FLOATING NUMBERS.
+5. In the get_params_combination() functions, Select integer parameters to ensure calculations result in integer values.
 </system>
 
 ### New origin problem 
