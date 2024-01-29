@@ -2,16 +2,13 @@
 
 ### Example origin problem 
 {
-    "question": "Natalia sold clips to 48 of her friends in April, and then she sold half as many clips in May. How many clips did Natalia sell altogether in April and May?", 
-    "answer": "Natalia sold 48/2 = <<48/2=24>>24 clips in May.\nNatalia sold 48+24 = <<48+24=72>>72 clips altogether in April and May.\n#### 72"
+    "problem": "If $x = 2$ and $y = 5$, then what is the value of $\\frac{x^4+2y^2}{6}$ ?", 
+    "solution": "We have  \\[\\frac{x^4 + 2y^2}{6} = \\frac{2^4 + 2(5^2)}{6} = \\frac{16+2(25)}{6} = \\frac{16+50}{6} = \\frac{66}{6} = \\boxed{11}.\\]"
 }
 
 ### Example problem template
 ```python
-# Origin problem: {"question": "Natalia sold clips to 48 of her friends in April, and then she sold half as many clips in May. 
-#   How many clips did Natalia sell altogether in April and May?", 
-#   "answer": "Natalia sold 48/2 = <<48/2=24>>24 clips in May.\nNatalia sold 48+24 = <<48+24=72>>72 clips altogether 
-#   in April and May.\n#### 72"}
+# Origin problem: {"problem": "If $x = 2$ and $y = 5$, then what is the value of $\\frac{x^4+2y^2}{6}$ ?", "solution": "We have  \\[\\frac{x^4 + 2y^2}{6} = \\frac{2^4 + 2(5^2)}{6} = \\frac{16+2(25)}{6} = \\frac{16+50}{6} = \\frac{66}{6} = \\boxed{11}.\\]"}
 
 
 import random
@@ -49,62 +46,42 @@ with jsonlines.open('./data/us_counties.jsonl') as reader:
 
 
 def generate_problem_and_solution_code():
-    # Lists of random terms
-    months = ["January and February", "Februray and March", "March and April", "April and May", "May and June", "June and July", "July and August", "August and September", "September and October", "October and November", "November and December", "December and January"]
-
-    # Get initial amount and subsequent ratio that ensure an integer result
-    initial_amount, subsequent_ratio = get_params_combination()
-    
     # Randomly select terms
     name = random.choice(first_names) + ' ' + random.choice(last_names)
     item = random.choice(items)
-    month = random.choice(months)
-    year = random.randint(2003, 2023)
     place = random.choice(places)
     county = random.choice(us_counties)
     county = county['CountyName'] + ", " + county["StateName"]
 
-    # Variables for use in solution code
-    name_var = name.replace(' ', '_')
-    item_var = item.replace(' ', '_')
-    county_var = county.replace(' ', '_')
+    # Get values for variables in the expression
+    var1_value, var2_value, divisor = get_params_combination()
 
     # Construct problem statement with specific details
-    problem_statement = f"{name} sold {initial_amount} {item} in {month.split(' and ')[0]}, {year} at {place} in {county}. "
-    problem_statement += f"In {month.split(' and ')[1]}, they sold {subsequent_ratio*100:.0f}% of the amount sold in the previous month. "
-    problem_statement += f"How many {item} did {name} sell in total during {month}?"
+    problem_statement = f"If {name} has {var1_value} {item}s at {place} in {county}, and {var2_value} more are added, "
+    problem_statement += f"what is the total value of {item}s when divided by {divisor}?"
 
     # Generate solution code with specific variable names and comments
-    sales_var = f"{item.replace(' ', '_')}_sold_in_{month.split(' ')[0]}"
-    ratio_var = f"{item.replace(' ', '_')}_ratio"
-    total_var = f"total_{item.replace(' ', '_')}"
+    solution_code = f"""# Initial amount of {item}s
+initial_{item.replace(' ', '_')} = {var1_value}
 
-    solution_code = f"""# Number of {item} sold by {name} in {month.split(' and ')[0]}, {year}
-{sales_var} = {initial_amount}
+# Added {item}s
+added_{item.replace(' ', '_')} = {var2_value}
 
-# Sales ratio for the next month
-{ratio_var} = {subsequent_ratio}
+# Total {item}s
+total_{item.replace(' ', '_')} = initial_{item.replace(' ', '_')} + added_{item.replace(' ', '_')}
 
-# Calculating the amount of {item} sold in {month.split(' and ')[1]}
-# by applying the ratio to the initial sales
-subsequent_{sales_var} = {sales_var} * {ratio_var}
-
-# Calculating the total number of {item} sold during {month} at {place} in {county}
-{total_var} = {sales_var} + subsequent_{sales_var}
-
-result = {total_var}
+# Calculating the value when divided by {divisor}
+result = total_{item.replace(' ', '_')} / {divisor}
 """
 
     # Execute the solution code and get the result
     exec_globals = {}
     exec(solution_code, {}, exec_globals)
-    result = round(exec_globals['result'], 2)
+    result = int(round(exec_globals['result'],0))
 
     # Generate the solution without code (solution_wocode)
-    solution_wocode = f"{name} sold {initial_amount} {item} in {month.split(' and ')[0]}, {year} at {place} in {county}. "
-    solution_wocode += f"In {month.split(' and ')[1]}, they sold {subsequent_ratio*100:.0f}% of the amount sold in the previous month. "
-    solution_wocode += f"{name} sold {round(subsequent_ratio*initial_amount, 2)} {item} in {month.split(' and ')[1]}. "
-    solution_wocode += f"In total, {name} sold {initial_amount} + {round(subsequent_ratio*initial_amount, 2)} = {round(result, 2)} {item} during {month}."
+    solution_wocode = f"The initial amount of {item}s is {var1_value}, and {var2_value} more are added, making a total of {var1_value} + {var2_value} = {var1_value + var2_value}. "
+    solution_wocode += f"When divided by {divisor}, the result is {int(round(result, 0))}."
 
     return problem_statement, solution_code, result, solution_wocode
 
@@ -114,18 +91,17 @@ def get_params_combination():
     Select integer parameters to ensure calculations result in integer values.
     """
     while True:
-        # Randomly generate initial amount
-        initial_amount = random.randint(5, 50000)
+        # Randomly generate initial value and addition
+        var1_value = random.randint(1, 100)
+        var2_value = random.randint(1, 100)
 
-        # Randomly generate subsequent ratio
-        subsequent_ratio = round(random.uniform(0.5, 9.5), 2)
+        # Randomly select a divisor
+        divisor = random.choice([2, 3, 4, 5, 6, 7, 8, 9, 10])
 
-        # Calculate the product
-        product = initial_amount * subsequent_ratio
-
-        # Check if the product is close to an integer
-        if math.isclose(product, round(product), rel_tol=1e-15):
-            return initial_amount, subsequent_ratio
+        # Check if the total and division result are integers
+        total = var1_value + var2_value
+        if total % divisor == 0:
+            return var1_value, var2_value, divisor
 
 
 parser = argparse.ArgumentParser(description="Generate problems and solutions.")
