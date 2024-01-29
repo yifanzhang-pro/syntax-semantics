@@ -43,6 +43,8 @@ print(result())
 
 ```python
 {solution_code}
+
+print(result)
 ```
 ```output
 {result}
