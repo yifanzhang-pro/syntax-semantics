@@ -124,7 +124,7 @@ if __name__ == "__main__":
 
 <system>
 Requirement:
-1. YOU MUST UTILIZE predefined variable lists first_names, last_names, items, places, us_counties. (name, item, place and county may contain blanks ' ', you need to replace it with '_" in as *_var term in the "solution_code" field)
+1. YOU MUST UTILIZE predefined variable lists first_names, last_names, items, places, us_counties. (name, item, place and county may contain blanks ' ', you need to replace it with '_" in as *_var term in the "solution_code" field, item has already been pluralized, and places have articles，e.g., 'a places')
 2. YOU MUST NOT PERFORM round(*, 2) in the "solution_code" field.
 3. "solution_code" field must be ended with "result = ..."
 4. DO NOT USE `//` IN THE "solution_code" field.
