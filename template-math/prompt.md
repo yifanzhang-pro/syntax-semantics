@@ -134,9 +134,10 @@ Requirement:
 
 ### New origin problem 
 {
-    "question": "Jill gets paid $20 per hour to teach and $30 to be a cheerleading coach. If she works 50 weeks a year, 35 hours a week as a teacher and 15 hours a week as a coach, what's her annual salary?", 
-    "answer": "First find the total amount Jill makes per week teaching: $20/hour * 35 hours/week = $<<20*35=700>>700/week\nThen find the total amount Jill makes per week coaching: $30/hour * 15 hours/week = $<<30*15=450>>450/week\nThen add those two amounts to find the total amount Jill makes per week: $700/week + $450/week = $<<700+450=1150>>1150/week\nThen multiply that number by the number of weeks Jill works in a year to find her annual salary: $1150/week * 50 weeks/year = $<<1150*50=57500>>57,500\n#### 57500"
+    "problem": "The perimeter of a rectangular garden is 60 feet. If the length of the field is twice the width, what is the area of the field, in square feet?", 
+    "solution": "If the length is $l$ and the width is $w$, then the perimeter is $2l+2w$. We can set up the equations $2l+2w=60 \\Rightarrow l+w=30$ and $l=2w$. Now we substitute $l$ in terms of $w$ into the first equation and get $l+w=2w+w=30$, so $w=10$ and $l=2(10)=20$. That means the area of the rectangular garden is $lw=20(10)=\\boxed{200}$ square feet."
 }
+
 
 ### Analysis and Reasoning
 
