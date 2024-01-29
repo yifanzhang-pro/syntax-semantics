@@ -65,12 +65,14 @@ difference_items = {difference}
 
 # Solving for item2_var
 item2_var = (total_items - difference_items) / 2
+
+result =  item2_var
 """
 
     # Execute the solution code and get the result
     exec_globals = {}
     exec(solution_code, {}, exec_globals)
-    item2_count = int(round(exec_globals['item2_var'],0))
+    item2_count = int(round(exec_globals['result'], 0))
 
     # Generate the solution without code (solution_wocode)
     solution_wocode = f"The total number of items is {total_amount}, and the difference between the number of {item1}s and {item2}s is {difference}. "

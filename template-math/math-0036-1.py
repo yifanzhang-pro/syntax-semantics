@@ -63,12 +63,14 @@ total_cost = {total_cost}
 
 # Number of {item}s that can be bought
 num_{item.replace(' ', '_')} = (total_cost - additional_cost) / item_cost
+
+result = num_{item.replace(' ', '_')}
 """
 
     # Execute the solution code and get the result
     exec_globals = {}
     exec(solution_code, {}, exec_globals)
-    result = exec_globals[f'num_{item.replace(" ", "_")}']
+    result = exec_globals[f'result']
 
     # Generate the solution without code
     solution_wocode = f"With a total budget of ${total_cost}, and considering each {item} costs ${item_cost}, "

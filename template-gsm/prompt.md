@@ -32,12 +32,12 @@ with jsonlines.open('./data/top_last_names.jsonl') as reader:
     for line in reader:
         last_names.append(line['last_name'])
 
-items = []
+items = [] # plural items, like 'apples'
 with jsonlines.open('./data/items-llm.jsonl') as reader:
     for line in reader:
         items.append(line)
 
-places = []
+places = [] # like 'a bookstore', 'the xxx', ...
 with jsonlines.open('./data/places-llm.jsonl') as reader:
     for line in reader:
         places.append(line)

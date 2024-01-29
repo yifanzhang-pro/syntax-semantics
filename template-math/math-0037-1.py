@@ -57,12 +57,14 @@ x = {function_input}
 
 # Calculating g(x)
 g_x = {a} * x + {b}
+
+result = g_x
 """
 
     # Execute the solution code and get the result
     exec_globals = {}
     exec(solution_code, {}, exec_globals)
-    result = exec_globals['g_x']
+    result = exec_globals['result']
 
     # Generate the solution without code
     solution_wocode = f"$g({function_input}) = {a} * {function_input} + {b} = {a * function_input} + {b} = {result}$."

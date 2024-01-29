@@ -63,12 +63,14 @@ total_{item_code} = initial_{item_code} + {linear_coefficient}
 
 # Squaring the total number of {item_code}s
 squared_{item_code} = total_{item_code} ** 2
+
+result = squared_{item_code}
 """
 
     # Execute the solution code and get the result
     exec_globals = {}
     exec(solution_code, {}, exec_globals)
-    result = exec_globals['squared_' + item_code]
+    result = exec_globals['result']
 
     # Generate the solution without code (solution_wocode)
     total_items = var_value + linear_coefficient
