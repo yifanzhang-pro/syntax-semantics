@@ -23,6 +23,8 @@ with open(input_file_path, 'r') as input_file, open(output_file_path, 'w') as ou
         sample = json.loads(line.strip())  # Load JSON object from the line
         if satisfies_criteria(sample):
             sample['idx'] = idx
+            sample.pop('level', None)
+            sample.pop('type', None)
             # Write the sample to the output file if it satisfies the criteria
             output_file.write(json.dumps(sample) + '\n')
         idx += 1

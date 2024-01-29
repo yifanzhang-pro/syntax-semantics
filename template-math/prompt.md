@@ -144,7 +144,7 @@ if __name__ == "__main__":
             f.write(json.dumps({"problem": problem, "solution_code": solution_code, "solution_wocode": solution_wocode, "result": str(result), "idx": i}) + '\n')
 ```
 
-# [Instruction]: Can you compose a new problem template which has exactly the same reasoning structure of this new origin problem? You need to utilized predefined variable lists first_names, last_names, items, places, us_counties. **You only need to write down the function generate_problem_and_solution_code() and get_params_combination()**, I suggest you to get integer params. Your problem and answer should be in the same distribution as GSM8K (Karl Cobbe et al., 2021).
+# [Instruction]: Can you compose a new problem template which has exactly the same reasoning structure of this new origin problem? You need to utilized predefined variable lists first_names, last_names, items, places, us_counties. **You only need to write down the function generate_problem_and_solution_code() and get_params_combination()**, I suggest you to get integer params. Your problem and answer should be in the same distribution as the MATH dataset (Hendrycks et al., 2021).
 
 <system>
 Requirement:
