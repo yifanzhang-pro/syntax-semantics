@@ -103,8 +103,8 @@ def get_params_combination():
     """
     while True:
         # Randomly generate initial and new percentages
-        initial_percentage = random.randint(5, 95)
-        new_percentage = random.randint(5, 95)
+        initial_percentage = random.randint(6, 95)
+        new_percentage = random.randint(5, initial_percentage - 1)
 
         # Ensure percentages are different to avoid division by zero
         if initial_percentage == new_percentage:

@@ -1,12 +1,12 @@
-# [Instruction]: Here comes a problem template, Can you compose a new problem template which has exactly the same reasoning structure of this new origin problem?
+# [Instruction]: Compose a new problem template mirroring the reasoning structure of the provided origin problem, with a focus on enhancing critical thinking and multi-step reasoning.
 
-### Example origin problem 
+### Example Origin Problem 
 {
     "problem": "If $x = 2$ and $y = 5$, then what is the value of $\\frac{x^4+2y^2}{6}$ ?", 
     "solution": "We have  \\[\\frac{x^4 + 2y^2}{6} = \\frac{2^4 + 2(5^2)}{6} = \\frac{16+2(25)}{6} = \\frac{16+50}{6} = \\frac{66}{6} = \\boxed{11}.\\]"
 }
 
-### Example problem template
+### Example Problem Template
 ```python
 # Origin problem: {"problem": "If $x = 2$ and $y = 5$, then what is the value of $\\frac{x^4+2y^2}{6}$ ?", "solution": "We have  \\[\\frac{x^4 + 2y^2}{6} = \\frac{2^4 + 2(5^2)}{6} = \\frac{16+2(25)}{6} = \\frac{16+50}{6} = \\frac{66}{6} = \\boxed{11}.\\]"}
 
@@ -113,30 +113,20 @@ NUM_PROBLEMS = args.num_problems
         
 if __name__ == "__main__":
     # output jsonl file
-    with open(f'./output/gsm-1-1--NUM{NUM_PROBLEMS}.jsonl', 'w') as f:
+    with open(f'./output/MATH-1-1--NUM{NUM_PROBLEMS}.jsonl', 'w') as f:
         for i in range(NUM_PROBLEMS):
             problem, solution_code, result, solution_wocode = generate_problem_and_solution_code()
             # Write problem to file
             f.write(json.dumps({"problem": problem, "solution_code": solution_code, "solution_wocode": solution_wocode, "result": str(result), "idx": i}) + '\n')
 ```
 
-# [Instruction]: Can you compose a new problem template which has exactly the same reasoning structure of this new origin problem? You need to utilized predefined variable lists first_names, last_names, items, places, us_counties. **You only need to write down the function generate_problem_and_solution_code() and get_params_combination()**, I suggest you to get integer params. Your problem and answer should be in the same distribution as the MATH dataset (Hendrycks et al., 2021).
+# [Instruction]: Compose a new problem template mirroring the reasoning structure of the provided origin problem. Utilize predefined variable lists first_names, last_names, items, places, us_counties, ensuring the problem and solution involve symbolic reasoning and integer calculations. The problem should align with the complexity and structure of the MATH dataset (Hendrycks et al., 2021).
 
-<system>
-Requirement:
-1. YOU CAN UTILIZE predefined variable lists first_names, last_names, items, places, us_counties. (name, item, place and county may contain blanks ' ', you need to replace it with '_" in as *_var term in the "solution_code" field, item has already been pluralized, and places have articles，e.g., 'a places')
-2. YOU MUST NOT PERFORM round(*, 2) in the "solution_code" field.
-3. "solution_code" field must be ended with "result = ..."
-4. DO NOT USE `//` IN THE "solution_code" field.
-5. REMEMBER TO `exec(solution_code, {}, exec_globals)`.
-6. YOU MUST PERFORM round(*, 2) in the "solution_wocode" field.
-7. In the get_params_combination() functions, Select integer parameters to ensure calculations result in integer values.
-</system>
+###  New Origin Problem 
 
-### New origin problem 
 {
-    "problem": "The perimeter of a rectangular garden is 60 feet. If the length of the field is twice the width, what is the area of the field, in square feet?", 
-    "solution": "If the length is $l$ and the width is $w$, then the perimeter is $2l+2w$. We can set up the equations $2l+2w=60 \\Rightarrow l+w=30$ and $l=2w$. Now we substitute $l$ in terms of $w$ into the first equation and get $l+w=2w+w=30$, so $w=10$ and $l=2(10)=20$. That means the area of the rectangular garden is $lw=20(10)=\\boxed{200}$ square feet."
+    "problem": "Solve for $x$: $\\dfrac{1}{2} + \\dfrac{1}{x} = \\dfrac{5}{6}$.", 
+    "solution": "Subtracting $\\frac12$ from both sides gives $\\frac1x = \\frac56-\\frac12 = \\frac13$, so taking the reciprocal of both sides gives $x = \\boxed{3}$."
 }
 
 ### Analysis and Reasoning
@@ -147,6 +137,6 @@ Requirement:
 
 [to be generated]
 
-### New problem template
+###  New Problem Template
 
 [to be generated]
