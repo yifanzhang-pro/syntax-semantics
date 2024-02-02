@@ -62,8 +62,8 @@ def generate_problem_and_solution_code():
 
     # Construct problem statement with specific details
     problem_statement = f"{name} started {activity} with {initial_amount} {item} at {place} in {county}. "
-    problem_statement += f"Of the first half, {name} {achievement} {fraction_hit*100}% of them but {failure} the rest. "
-    problem_statement += f"Of the second half, {name} {achievement} {fraction_miss*100}% of them. "
+    problem_statement += f"Of the first half, {name} {achievement} {round(fraction_hit*100)}% of them but {failure} the rest. "
+    problem_statement += f"Of the second half, {name} {achievement} {round(fraction_miss*100)}% of them. "
     problem_statement += f"How many {item} did {name} {failure} in total?"
 
     # Generate solution code with specific variable names and comments
