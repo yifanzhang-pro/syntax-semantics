@@ -1,4 +1,6 @@
-# Syntax-Semantics Learning
+# TemplateMath
+
+TemplateMath: Syntactic Data Generation for Mathematical Problems (https://huggingface.co/datasets/math-ai/TemplateGSM)
 
 ## Data Structure
 
