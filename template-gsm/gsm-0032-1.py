@@ -1,4 +1,5 @@
-# Origin problem: 
+# Origin problem: {"question": "A car is driving through a tunnel with many turns. After a while, the car must travel through a ring that requires a total of 4 right-hand turns. After the 1st turn, it travels 5 meters. After the 2nd turn, it travels 8 meters. After the 3rd turn, it travels a little further and at the 4th turn, it immediately exits the tunnel. If the car has driven a total of 23 meters around the ring, how far did it have to travel after the 3rd turn?", "answer": "From the details given, the car has traveled 5 meters at the 1st turn + 8 meters after the 2nd turn + 0 meters after the 4th turn = <<5+8+0=13>>13 meters around the ring.\nIt must therefore have driven 23 total meters \u2013 13 calculated meters = 10 meters after the 3rd turn.\n#### 10"}
+
 
 import random
 import math
