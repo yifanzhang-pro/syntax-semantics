@@ -78,7 +78,7 @@ result = type_B_and_above
     # Executing the solution code
     exec_globals = {}
     exec(solution_code, {}, exec_globals)
-    result = exec_globals['result']
+    result = round(exec_globals['result'])
 
     # Generating the solution without code
     solution_wocode = f"Since {percent}% of the {item}s are of type A, 100% - {percent}% = {100-percent}% of the {item}s are of type B and above. "
