@@ -2,3 +2,5 @@ output/
 */output/
 .DS_Store
 */.DS_Store
+response.json
+response.md
