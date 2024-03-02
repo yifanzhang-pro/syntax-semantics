@@ -150,7 +150,7 @@ if __name__ == "__main__":
 Requirement:
 1. YOU MUST UTILIZE predefined variable lists first_names, last_names, items, places, us_counties. (name, item, place and county may contain blanks ' ', you need to replace it with '_" in as *_var term in the "solution_code" field)
 2. YOU MUST NOT PERFORM round(*, 2) in the "solution_code" field.
-3. DO NOT USE `//` IN THE "solution_code" field.
+3. DO NOT USE `//` IN THE "solution_code" field, USE `/` INSTEAD. 
 4. REMEMBER TO `exec(solution_code, {}, exec_globals)`.
 5. YOU MUST PERFORM round(*, 2) in the "solution_wocode" field.
 6. In the get_params_combination() functions, Select integer parameters to ensure calculations result in integer values.
