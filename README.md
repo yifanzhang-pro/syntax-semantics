@@ -27,7 +27,7 @@ def solution():
     {solution_code}
     return result
 
-print(result())
+print(solution())
 ```
 ```output
 {result}
